@@ -1,53 +1,62 @@
 # ============================================
 # Kubernetes Deployment - Next.js Portfolio
 # ============================================
-# Image: portfolio:test (local Minikube testing)
-# Port:  3000 (Next.js standalone server)
-# ============================================
 
 apiVersion: apps/v1
 kind: Deployment
+
 metadata:
   name: portfolio-deployment
   labels:
     app: portfolio
     environment: development
+
 spec:
   replicas: 1
+
   selector:
     matchLabels:
       app: portfolio
+
   template:
     metadata:
       labels:
         app: portfolio
         environment: development
+
     spec:
       containers:
         - name: portfolio
-          image: portfolio:test
+          image: portfolio:latest
           imagePullPolicy: Never
+
           ports:
             - containerPort: 3000
               protocol: TCP
+
           env:
             - name: NODE_ENV
               value: "production"
+
             - name: HOSTNAME
               value: "0.0.0.0"
+
           resources:
             requests:
               memory: "128Mi"
               cpu: "100m"
+
             limits:
               memory: "512Mi"
               cpu: "500m"
+
           readinessProbe:
             httpGet:
               path: /
               port: 3000
             initialDelaySeconds: 10
             periodSeconds: 5
+
           livenessProbe:
             httpGet:
               path: /
