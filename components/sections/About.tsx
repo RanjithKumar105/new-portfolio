@@ -35,7 +35,7 @@ export default function About() {
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <ImageWithFallback
-                    src={portfolioData.personal.images.aboutImage1}
+                    src="/images/about-3.jpeg"
                     alt="Ranjith Kumar in Lab"
                     fallbackText="RK Photo 1"
                     fill
@@ -61,7 +61,7 @@ export default function About() {
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <ImageWithFallback
-                    src="/images/about-1.jpeg"
+                    src="/images/about-2.jpeg"
                     alt="Ranjith Kumar"
                     fallbackText="Ranjith Kumar"
                     fill
