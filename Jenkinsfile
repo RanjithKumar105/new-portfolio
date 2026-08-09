@@ -26,6 +26,13 @@ pipeline {
                 bat 'npm run build'
             }
         }
+
+        stage('Docker Build') {
+            steps {
+                echo 'Building Docker image...'
+                bat 'docker build -t portfolio:latest .'
+            }
+        }
     }
 
     post {
@@ -38,7 +45,8 @@ pipeline {
         }
 
         always {
-            echo 'Pipeline finished.'
+            echo 'Pipeline finished. Cleaning workspace...'
+            cleanWs()
         }
     }
 }

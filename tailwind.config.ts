@@ -5,18 +5,18 @@ const config: Config = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
   ],
-  lightMode: "class",
+  darkMode: "class",
   theme: {
     extend: {
       colors: {
-        bgPrimary: "#0a0a0f",
-        bgSecondary: "#111118",
-        bgTertiary: "#16161f",
-        textPrimary: "#e8e8f0",
-        textSecondary: "#a0a0b8",
-        accent1: "#7c3aed",
-        accent2: "#3b82f6",
-        accent3: "#06b6d4",
+        primary: "#0a0a0f",
+        secondary: "#111118",
+        tertiary: "#16161f",
+        "text-primary": "#e8e8f0",
+        "text-secondary": "#a0a0b8",
+        "accent-1": "#7c3aed",
+        "accent-2": "#3b82f6",
+        "accent-3": "#06b6d4",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],

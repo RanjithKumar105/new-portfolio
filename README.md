@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Portfolio Project
 
-## Getting Started
+A modern, high-performance portfolio website built with Next.js 14, Tailwind CSS, and Framer Motion. 
+This project features a fully automated DevOps pipeline using Jenkins, Docker, and Kubernetes.
 
-First, run the development server:
+## 🚀 Technologies Used
 
+- **Frontend:** Next.js 14 (App Router), React, Tailwind CSS, Framer Motion
+- **Language:** TypeScript
+- **CI/CD Pipeline:** GitHub Webhooks → Jenkins → Docker → Kubernetes
+- **Monitoring:** Prometheus & Grafana (Planned)
+
+## 🛠️ Getting Started Locally
+
+First, install the dependencies:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
 ```
 
+Then, run the development server:
+```bash
+npm run dev
+```
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 🐳 Docker Deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+This project uses a highly optimized multi-stage Dockerfile leveraging Next.js `standalone` mode to keep the image size minimal.
 
-## Learn More
+To build the Docker image locally:
+```bash
+docker build -t portfolio:latest .
+```
 
-To learn more about Next.js, take a look at the following resources:
+To run the container:
+```bash
+docker run -p 3000:3000 portfolio:latest
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## ⚙️ DevOps Pipeline (Jenkins)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The included `Jenkinsfile` handles the Continuous Integration pipeline:
+1. **Install Dependencies:** `npm ci`
+2. **Lint:** `npm run lint`
+3. **Build:** `npm run build`
+4. **Docker Build:** `docker build -t portfolio:latest .`
+5. **Cleanup:** `cleanWs()` clears the workspace after execution.
 
-## Deploy on Vercel
+## 📁 Project Structure
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/app` - Next.js App Router pages and layouts
+- `/components` - Reusable UI components and sections
+- `/data` - Centralized content and configuration
+- `/public` - Static assets (images, fonts, resume)

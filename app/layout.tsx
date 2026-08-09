@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
 import { portfolioData } from "@/data/portfolio";
 import { ScrollProgress } from "@/components/ui/ScrollProgress";
@@ -8,6 +8,13 @@ import { MouseSpotlight } from "@/components/ui/MouseSpotlight";
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",
+  variable: "--font-inter",
+});
+
+const outfit = Outfit({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-outfit",
 });
 
 export const metadata: Metadata = {
@@ -37,8 +44,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.className} min-h-screen bg-[#090a0f] text-slate-100 antialiased`}>
+    <html lang="en" className={`dark scroll-smooth ${inter.variable} ${outfit.variable}`}>
+      <body className="font-sans min-h-screen bg-[#090a0f] text-slate-100 antialiased">
         <ScrollProgress />
         <MouseSpotlight />
         {children}
