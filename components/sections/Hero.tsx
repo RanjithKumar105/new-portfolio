@@ -103,15 +103,6 @@ export default function Hero() {
               <ArrowRight className="w-4 h-4" />
             </a>
             <a
-              href={portfolioData.personal.resumeUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 text-sm font-semibold text-slate-200 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full backdrop-blur-md transition-all duration-200 hover:scale-[1.02]"
-            >
-              <Download className="w-4 h-4 text-emerald-400" />
-              Download CV
-            </a>
-            <a
               href="#contact"
               className="inline-flex items-center gap-2 px-5 py-3 text-sm font-medium text-slate-400 hover:text-white transition-colors"
             >
