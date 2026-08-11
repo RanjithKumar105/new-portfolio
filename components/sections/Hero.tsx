@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, Mail, Sparkles, ChevronDown } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, Sparkles, ChevronDown } from "lucide-react";
 import ImageWithFallback from "@/components/ui/ImageWithFallback";
 import { portfolioData } from "@/data/portfolio";
 
