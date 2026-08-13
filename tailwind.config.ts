@@ -9,21 +9,21 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        primary: "#0a0a0f",
-        secondary: "#111118",
-        tertiary: "#16161f",
-        "text-primary": "#e8e8f0",
-        "text-secondary": "#a0a0b8",
-        "accent-1": "#7c3aed",
-        "accent-2": "#3b82f6",
-        "accent-3": "#06b6d4",
+        primary: "#ffffff",
+        secondary: "#f8f9fa",
+        tertiary: "#e9ecef",
+        "text-primary": "#000000",
+        "text-secondary": "#495057",
+        "accent-1": "#212529",
+        "accent-2": "#343a40",
+        "accent-3": "#868e96",
       },
       fontFamily: {
         sans: ["var(--font-inter)", "sans-serif"],
         outfit: ["var(--font-outfit)", "sans-serif"],
       },
       backgroundImage: {
-        "gradient-accent": "linear-gradient(135deg, #7c3aed, #3b82f6, #06b6d4)",
+        "gradient-accent": "linear-gradient(135deg, #000000, #333333, #666666)",
       },
     },
   },

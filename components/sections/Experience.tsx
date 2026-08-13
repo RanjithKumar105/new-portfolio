@@ -16,7 +16,7 @@ export default function Experience() {
           subtitle="Hands-on internship experience in machine learning pipelines, cloud AI, and model deployment."
         />
 
-        <div className="relative border-l border-white/10 ml-4 sm:ml-8 space-y-12">
+        <div className="relative border-l border-black/20 ml-4 sm:ml-8 space-y-12">
           {portfolioData.experience.map((exp, idx) => (
             <motion.div
               key={exp.id}
@@ -27,24 +27,24 @@ export default function Experience() {
               className="relative pl-8 sm:pl-10"
             >
               {/* Timeline Bullet Node */}
-              <div className="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-slate-950 border-2 border-indigo-500 flex items-center justify-center shadow-lg shadow-indigo-500/20">
-                <Briefcase className="w-3.5 h-3.5 text-indigo-400" />
+              <div className="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-white border-2 border-black flex items-center justify-center shadow-md shadow-black/10">
+                <Briefcase className="w-3.5 h-3.5 text-black" />
               </div>
 
               {/* Experience Card */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-white/20 transition-all backdrop-blur-xl group">
+              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-black/10 hover:border-black/30 transition-all shadow-sm hover:shadow-md group">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors">
+                  <h3 className="text-xl sm:text-2xl font-black text-black group-hover:text-gray-600 transition-colors uppercase tracking-tight">
                     {exp.role}
                   </h3>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-indigo-500/10 text-indigo-300 border border-indigo-500/20">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-black/5 text-gray-800 border border-black/10">
                     <Calendar className="w-3 h-3" />
                     {exp.period}
                   </span>
                 </div>
 
-                <div className="flex items-center gap-3 text-sm text-slate-400 mb-4">
-                  <span className="font-medium text-slate-200">{exp.company}</span>
+                <div className="flex items-center gap-3 text-sm text-gray-600 mb-4 font-medium">
+                  <span className="font-bold text-black">{exp.company}</span>
                   {exp.location && (
                     <>
                       <span>•</span>
@@ -56,7 +56,7 @@ export default function Experience() {
                   )}
                 </div>
 
-                <p className="text-slate-300 text-sm leading-relaxed mb-6">
+                <p className="text-gray-600 font-medium text-sm leading-relaxed mb-6">
                   {exp.description}
                 </p>
 
@@ -65,9 +65,9 @@ export default function Experience() {
                   {exp.technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-white/5 border border-white/10 text-xs font-medium text-slate-300"
+                      className="inline-flex items-center gap-1.5 px-3 py-1 rounded-xl bg-black/5 border border-black/10 text-xs font-bold text-gray-800"
                     >
-                      <CheckCircle2 className="w-3 h-3 text-emerald-400" />
+                      <CheckCircle2 className="w-3 h-3 text-black" />
                       {tech}
                     </span>
                   ))}

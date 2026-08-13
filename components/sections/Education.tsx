@@ -16,7 +16,7 @@ export default function Education() {
           subtitle="Strong mathematical foundations, computer science principles, and artificial intelligence specialization."
         />
 
-        <div className="relative border-l border-white/10 ml-4 sm:ml-8 space-y-10">
+        <div className="relative border-l border-black/20 ml-4 sm:ml-8 space-y-10">
           {portfolioData.education.map((item, idx) => (
             <motion.div
               key={item.id}
@@ -27,40 +27,40 @@ export default function Education() {
               className="relative pl-8 sm:pl-10"
             >
               {/* Timeline Bullet */}
-              <div className="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-slate-950 border-2 border-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
+              <div className="absolute -left-3.5 top-1.5 w-7 h-7 rounded-full bg-white border-2 border-black flex items-center justify-center shadow-md shadow-black/10">
                 {item.icon === "GraduationCap" && (
-                  <GraduationCap className="w-3.5 h-3.5 text-emerald-400" />
+                  <GraduationCap className="w-3.5 h-3.5 text-black" />
                 )}
                 {item.icon === "BookOpen" && (
-                  <BookOpen className="w-3.5 h-3.5 text-emerald-400" />
+                  <BookOpen className="w-3.5 h-3.5 text-black" />
                 )}
                 {item.icon === "School" && (
-                  <School className="w-3.5 h-3.5 text-emerald-400" />
+                  <School className="w-3.5 h-3.5 text-black" />
                 )}
               </div>
 
               {/* Education Card */}
-              <div className="p-6 sm:p-8 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-white/20 transition-all backdrop-blur-xl group">
+              <div className="p-6 sm:p-8 rounded-3xl bg-white border border-black/10 hover:border-black/30 transition-all shadow-sm hover:shadow-md group">
                 <div className="flex flex-wrap items-center justify-between gap-2 mb-2">
-                  <h3 className="text-lg sm:text-xl font-bold text-white group-hover:text-emerald-300 transition-colors">
+                  <h3 className="text-lg sm:text-xl font-black text-black group-hover:text-gray-600 transition-colors uppercase tracking-tight">
                     {item.degree}
                   </h3>
-                  <span className="inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-300 border border-emerald-500/20">
+                  <span className="inline-flex items-center gap-1.5 text-xs font-bold px-3 py-1 rounded-full bg-black/5 text-gray-800 border border-black/10">
                     <Calendar className="w-3 h-3" />
                     {item.period}
                   </span>
                 </div>
 
-                <div className="flex flex-wrap items-center gap-3 text-sm text-slate-400 mb-3">
-                  <span className="font-medium text-slate-200">{item.institution}</span>
+                <div className="flex flex-wrap items-center gap-3 text-sm text-gray-600 font-medium mb-3">
+                  <span className="font-bold text-black">{item.institution}</span>
                   <span>•</span>
-                  <span className="inline-flex items-center gap-1 font-semibold text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-md text-xs">
+                  <span className="inline-flex items-center gap-1 font-bold text-black bg-black/5 px-2 py-0.5 rounded-md text-xs">
                     <Award className="w-3 h-3" />
                     {item.grade}
                   </span>
                 </div>
 
-                <p className="text-slate-300 text-sm leading-relaxed">
+                <p className="text-gray-600 font-medium text-sm leading-relaxed">
                   {item.details}
                 </p>
               </div>

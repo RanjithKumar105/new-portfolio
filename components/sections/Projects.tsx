@@ -31,8 +31,8 @@ export default function Projects() {
 
   return (
     <section id="projects" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
-      {/* Background Glow */}
-      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-indigo-600/5 rounded-full blur-3xl pointer-events-none -z-10" />
+      {/* Background Grid */}
+      <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-black/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
       <div className="max-w-7xl mx-auto">
         <SectionHeading
@@ -47,10 +47,10 @@ export default function Projects() {
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-4 py-1.5 text-xs font-semibold rounded-full transition-all duration-200 ${
+              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 uppercase tracking-wider ${
                 filter === category
-                  ? "bg-white text-slate-950 shadow-md shadow-white/10"
-                  : "bg-white/5 text-slate-400 hover:text-slate-200 hover:bg-white/10 border border-white/5"
+                  ? "bg-black text-white shadow-md shadow-black/10"
+                  : "bg-black/5 text-gray-500 hover:text-black hover:bg-black/10 border border-black/10"
               }`}
             >
               {category}
@@ -68,10 +68,10 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               whileHover={{ y: -4 }}
-              className="group relative rounded-3xl p-7 sm:p-8 bg-slate-900/60 border border-white/10 hover:border-white/20 transition-all duration-300 backdrop-blur-xl shadow-xl flex flex-col justify-between overflow-hidden"
+              className="group relative rounded-3xl p-7 sm:p-8 bg-black border-2 border-transparent hover:border-gray-500 transition-all duration-300 shadow-xl flex flex-col justify-between overflow-hidden"
             >
               {/* Subtle Card Glow Effect */}
-              <div className="absolute top-0 right-0 w-36 h-36 bg-blue-500/10 rounded-full blur-2xl group-hover:bg-blue-500/20 transition-all pointer-events-none" />
+              <div className="absolute top-0 right-0 w-36 h-36 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all pointer-events-none" />
 
               <div>
                 {/* Header with Badges & Action Links */}
@@ -82,10 +82,10 @@ export default function Projects() {
                     </span>
                     {project.status && (
                       <span
-                        className={`text-[10px] font-semibold uppercase tracking-wider px-2.5 py-0.5 rounded-full border ${
+                        className={`text-[10px] font-bold uppercase tracking-widest px-2.5 py-0.5 rounded-full border ${
                           project.status === "Ongoing"
-                            ? "bg-amber-500/10 text-amber-400 border-amber-500/20"
-                            : "bg-emerald-500/10 text-emerald-400 border-emerald-500/20"
+                            ? "bg-white/10 text-gray-300 border-white/20"
+                            : "bg-white/10 text-white border-white/20"
                         }`}
                       >
                         {project.status}
@@ -118,22 +118,22 @@ export default function Projects() {
                 </div>
 
                 {/* Project Title */}
-                <h3 className="text-xl sm:text-2xl font-bold text-white group-hover:text-blue-300 transition-colors tracking-tight">
+                <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-gray-300 transition-colors tracking-tight uppercase">
                   {project.title}
                 </h3>
 
                 {/* Project Description */}
-                <p className="mt-3 text-slate-300 text-sm leading-relaxed">
+                <p className="mt-3 text-gray-400 text-sm leading-relaxed font-medium">
                   {project.description}
                 </p>
               </div>
 
               {/* Technology Badges */}
-              <div className="mt-6 pt-5 border-t border-white/5 flex flex-wrap gap-2">
+              <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}
-                    className="px-2.5 py-1 rounded-lg bg-white/[0.04] border border-white/[0.06] text-[11px] font-medium text-slate-400 group-hover:text-slate-200 transition-colors"
+                    className="px-2.5 py-1 rounded-lg bg-white/10 border border-white/10 text-[11px] font-bold text-gray-300 group-hover:text-white transition-colors"
                   >
                     {tag}
                   </span>

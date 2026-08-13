@@ -17,8 +17,8 @@ const SKILL_CATEGORIES = [
     id: "programming",
     name: "Programming",
     label: "LANG",
-    color: "#3b82f6",
-    glow: "rgba(59,130,246,0.35)",
+    color: "#000000",
+    glow: "rgba(0,0,0,0.15)",
     iconEmoji: "{ }",
     skills: [
       { name: "Python", desc: "Primary AI/ML language" },
@@ -33,8 +33,8 @@ const SKILL_CATEGORIES = [
     id: "ai",
     name: "Artificial Intelligence",
     label: "AI/ML",
-    color: "#a855f7",
-    glow: "rgba(168,85,247,0.35)",
+    color: "#222222",
+    glow: "rgba(0,0,0,0.15)",
     iconEmoji: "AI",
     skills: [
       { name: "Machine Learning", desc: "Core ML algorithms" },
@@ -50,8 +50,8 @@ const SKILL_CATEGORIES = [
     id: "frontend",
     name: "Frontend",
     label: "UI",
-    color: "#06b6d4",
-    glow: "rgba(6,182,212,0.35)",
+    color: "#444444",
+    glow: "rgba(0,0,0,0.15)",
     iconEmoji: "</>",
     skills: [
       { name: "React", desc: "Component-driven UI" },
@@ -62,8 +62,8 @@ const SKILL_CATEGORIES = [
     id: "backend",
     name: "Backend",
     label: "API",
-    color: "#10b981",
-    glow: "rgba(16,185,129,0.35)",
+    color: "#111111",
+    glow: "rgba(0,0,0,0.15)",
     iconEmoji: "[ ]",
     skills: [
       { name: "Node.js", desc: "Server-side JS runtime" },
@@ -75,8 +75,8 @@ const SKILL_CATEGORIES = [
     id: "cloud",
     name: "Cloud & DevOps",
     label: "OPS",
-    color: "#f59e0b",
-    glow: "rgba(245,158,11,0.35)",
+    color: "#333333",
+    glow: "rgba(0,0,0,0.15)",
     iconEmoji: ">>",
     skills: [
       { name: "Git", desc: "Version control" },
@@ -89,8 +89,8 @@ const SKILL_CATEGORIES = [
     id: "tools",
     name: "Tools",
     label: "TOOLS",
-    color: "#e2e8f0",
-    glow: "rgba(226,232,240,0.2)",
+    color: "#555555",
+    glow: "rgba(0,0,0,0.15)",
     iconEmoji: "//",
     skills: [
       { name: "VS Code", desc: "Primary IDE" },
@@ -496,14 +496,12 @@ function SkillCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -8, scale: 1.02 }}
-      className="relative rounded-2xl overflow-hidden cursor-default select-none"
+      className="relative rounded-2xl overflow-hidden cursor-default select-none bg-white"
       style={{
-        background: "rgba(12,13,22,0.85)",
-        backdropFilter: "blur(24px)",
-        border: `1px solid ${isHovered ? category.color + "55" : "rgba(255,255,255,0.07)"}`,
+        border: `2px solid ${isHovered ? category.color + "55" : "rgba(0,0,0,0.1)"}`,
         boxShadow: isHovered
-          ? `0 28px 70px -12px ${category.glow}, 0 0 0 1px ${category.color}20`
-          : "0 8px 32px -8px rgba(0,0,0,0.6)",
+          ? `0 10px 30px -10px ${category.glow}`
+          : "0 4px 10px -5px rgba(0,0,0,0.05)",
         transition: "border-color 0.3s ease, box-shadow 0.35s ease",
       }}
     >
@@ -558,7 +556,7 @@ function SkillCard({
               {category.iconEmoji}
             </motion.div>
             <div>
-              <h3 className="text-sm font-semibold text-white leading-tight">{category.name}</h3>
+              <h3 className="text-sm font-black text-black leading-tight uppercase tracking-tight">{category.name}</h3>
               <span
                 className="text-[10px] font-mono font-bold tracking-[0.15em] uppercase"
                 style={{ color: category.color }}
@@ -590,11 +588,11 @@ function SkillCard({
               animate={{ opacity: 1, scale: 1 }}
               transition={{ delay: cardIndex * 0.1 + i * 0.035 + 0.25, duration: 0.2, type: "spring" }}
               whileHover={{ scale: 1.07, y: -1.5 }}
-              className="px-2.5 py-1 rounded-lg text-[11px] font-medium transition-all duration-200"
+              className="px-2.5 py-1 rounded-lg text-[11px] font-bold transition-all duration-200"
               style={{
-                background: "rgba(255,255,255,0.04)",
-                border: "1px solid rgba(255,255,255,0.08)",
-                color: "#cbd5e1",
+                background: "rgba(0,0,0,0.05)",
+                border: "1px solid rgba(0,0,0,0.1)",
+                color: "#4b5563",
               }}
             >
               <span
@@ -607,8 +605,8 @@ function SkillCard({
         </div>
 
         {/* Footer */}
-        <div className="pt-3 border-t border-white/[0.05] flex items-center justify-between">
-          <span className="text-[10px] text-slate-700 font-mono">verified · active</span>
+        <div className="pt-3 border-t border-black/10 flex items-center justify-between">
+          <span className="text-[10px] text-gray-500 font-bold font-mono uppercase tracking-wider">verified · active</span>
           <div className="flex items-center gap-1.5">
             <motion.div
               animate={{ opacity: [1, 0.35, 1] }}
@@ -890,22 +888,22 @@ export default function AIConsoleSkills() {
           className="text-center mb-10"
         >
           <motion.div
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.1] mb-5"
-            style={{ background: "rgba(124,58,237,0.1)", backdropFilter: "blur(8px)" }}
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/10 mb-5"
+            style={{ background: "rgba(0,0,0,0.05)" }}
           >
             <motion.span
               animate={{ opacity: [1, 0.35, 1] }}
               transition={{ repeat: Infinity, duration: 2 }}
-              className="w-1.5 h-1.5 rounded-full bg-purple-400"
+              className="w-1.5 h-1.5 rounded-full bg-black"
             />
-            <span className="text-[11px] font-mono text-purple-300 tracking-[0.18em] uppercase">
+            <span className="text-[11px] font-mono text-gray-800 font-bold tracking-[0.18em] uppercase">
               AI Developer Console · v2.0
             </span>
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white tracking-tight mb-3">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-3 uppercase">
             Skills &amp; Technology Stack
           </h2>
-          <p className="text-slate-400 text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
+          <p className="text-gray-600 font-medium text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
             Engineering competencies identified and verified by the AI system.
           </p>
         </motion.div>
@@ -973,26 +971,26 @@ export default function AIConsoleSkills() {
               >
                 <div
                   className="h-px w-32"
-                  style={{ background: "linear-gradient(90deg, transparent, rgba(124,58,237,0.5))" }}
+                  style={{ background: "linear-gradient(90deg, transparent, rgba(0,0,0,0.2))" }}
                 />
                 <div
-                  className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-white/[0.09] text-[11px] font-mono"
-                  style={{ background: "rgba(9,10,18,0.85)", backdropFilter: "blur(12px)" }}
+                  className="flex items-center gap-2.5 px-4 py-2 rounded-full border border-black/10 text-[11px] font-mono"
+                  style={{ background: "rgba(255,255,255,0.85)", backdropFilter: "blur(12px)", boxShadow: "0 4px 10px rgba(0,0,0,0.05)" }}
                 >
                   <motion.span
                     animate={{ opacity: [1, 0.3, 1] }}
                     transition={{ repeat: Infinity, duration: 1.6 }}
-                    className="w-1.5 h-1.5 rounded-full bg-green-400"
+                    className="w-1.5 h-1.5 rounded-full bg-black"
                   />
-                  <span className="text-green-400">System Online</span>
-                  <span className="text-slate-600">·</span>
-                  <span className="text-slate-400">6 modules loaded</span>
-                  <span className="text-slate-600">·</span>
-                  <span className="text-slate-400">25 skills verified</span>
+                  <span className="text-black font-bold">System Online</span>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-600 font-bold">6 modules loaded</span>
+                  <span className="text-gray-400">·</span>
+                  <span className="text-gray-600 font-bold">25 skills verified</span>
                 </div>
                 <div
                   className="h-px w-32"
-                  style={{ background: "linear-gradient(90deg, rgba(59,130,246,0.5), transparent)" }}
+                  style={{ background: "linear-gradient(90deg, rgba(0,0,0,0.2), transparent)" }}
                 />
               </motion.div>
 
@@ -1011,22 +1009,21 @@ export default function AIConsoleSkills() {
                 className="mt-10 flex flex-wrap items-center justify-center gap-3"
               >
                 {[
-                  { label: "Languages", count: "6", color: "#3b82f6" },
-                  { label: "AI / ML", count: "7", color: "#a855f7" },
-                  { label: "Frameworks", count: "5", color: "#06b6d4" },
-                  { label: "DevOps", count: "4", color: "#f59e0b" },
-                  { label: "Total Skills", count: "25+", color: "#e2e8f0" },
+                  { label: "Languages", count: "6", color: "#000000" },
+                  { label: "AI / ML", count: "7", color: "#222222" },
+                  { label: "Frameworks", count: "5", color: "#444444" },
+                  { label: "DevOps", count: "4", color: "#111111" },
+                  { label: "Total Skills", count: "25+", color: "#333333" },
                 ].map((s) => (
                   <motion.div
                     key={s.label}
                     whileHover={{ scale: 1.05, y: -2 }}
-                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-white/[0.06]"
-                    style={{ background: "rgba(255,255,255,0.025)", backdropFilter: "blur(8px)" }}
+                    className="flex items-center gap-2 px-4 py-2.5 rounded-xl border border-black/10 bg-white shadow-sm"
                   >
-                    <span className="text-xl font-bold tracking-tight" style={{ color: s.color }}>
+                    <span className="text-xl font-black tracking-tight" style={{ color: s.color }}>
                       {s.count}
                     </span>
-                    <span className="text-xs text-slate-500 font-mono">{s.label}</span>
+                    <span className="text-xs text-gray-600 font-bold uppercase tracking-wider">{s.label}</span>
                   </motion.div>
                 ))}
               </motion.div>

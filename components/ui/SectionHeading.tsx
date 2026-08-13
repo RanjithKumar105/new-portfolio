@@ -28,19 +28,19 @@ export function SectionHeading({
     >
       {badge && (
         <div
-          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-medium bg-white/5 border border-white/10 text-slate-300 backdrop-blur-md mb-4 ${
+          className={`inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold bg-black/5 border border-black/10 text-gray-800 backdrop-blur-md mb-4 ${
             isCenter ? "mx-auto" : ""
           }`}
         >
-          <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+          <span className="w-1.5 h-1.5 rounded-full bg-black animate-pulse" />
           {badge}
         </div>
       )}
-      <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white">
+      <h2 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight text-black uppercase">
         {title}
       </h2>
       {subtitle && (
-        <p className="mt-3 text-base sm:text-lg text-slate-400 leading-relaxed">
+        <p className="mt-4 text-base sm:text-lg text-gray-600 font-medium leading-relaxed">
           {subtitle}
         </p>
       )}

@@ -7,14 +7,14 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 import { portfolioData } from "@/data/portfolio";
 
 export default function Achievements() {
-  const getCategoryIcon = (category: string) => {
+    const getCategoryIcon = (category: string) => {
     switch (category) {
       case "Hackathon":
-        return <Trophy className="w-5 h-5 text-amber-400" />;
+        return <Trophy className="w-5 h-5 text-black" />;
       case "Ideathon":
-        return <Lightbulb className="w-5 h-5 text-blue-400" />;
+        return <Lightbulb className="w-5 h-5 text-black" />;
       default:
-        return <Users className="w-5 h-5 text-emerald-400" />;
+        return <Users className="w-5 h-5 text-black" />;
     }
   };
 
@@ -36,37 +36,37 @@ export default function Achievements() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
               whileHover={{ y: -4 }}
-              className="p-6 sm:p-7 rounded-3xl bg-slate-900/60 border border-white/10 hover:border-white/20 transition-all backdrop-blur-xl group flex flex-col justify-between"
+              className="p-6 sm:p-7 rounded-3xl bg-white border border-black/10 hover:border-black/30 transition-all shadow-sm hover:shadow-md group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center group-hover:scale-110 transition-transform">
+                  <div className="w-10 h-10 rounded-2xl bg-black/5 border border-black/10 flex items-center justify-center group-hover:scale-110 transition-transform">
                     {getCategoryIcon(item.category)}
                   </div>
                   {item.badge && (
-                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-amber-500/10 text-amber-300 border border-amber-500/20 flex items-center gap-1">
-                      <Sparkles className="w-3 h-3 text-amber-400" />
+                    <span className="text-[11px] font-bold px-2.5 py-0.5 rounded-full bg-black/5 text-black border border-black/10 flex items-center gap-1">
+                      <Sparkles className="w-3 h-3 text-black" />
                       {item.badge}
                     </span>
                   )}
                 </div>
 
-                <h3 className="text-lg font-bold text-white group-hover:text-amber-300 transition-colors tracking-tight">
+                <h3 className="text-lg font-black text-black group-hover:text-gray-600 transition-colors tracking-tight uppercase">
                   {item.title}
                 </h3>
 
-                <p className="mt-1 text-xs text-slate-400 font-medium">
+                <p className="mt-1 text-xs text-gray-600 font-bold">
                   {item.organizer} • {item.date}
                 </p>
 
-                <p className="mt-4 text-slate-300 text-sm leading-relaxed">
+                <p className="mt-4 text-gray-600 font-medium text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
 
-              <div className="mt-6 pt-4 border-t border-white/5 flex items-center justify-between text-xs text-slate-500 font-mono">
+              <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between text-xs text-gray-500 font-bold font-mono">
                 <span>Category</span>
-                <span className="text-slate-300 font-medium">{item.category}</span>
+                <span className="text-black font-black uppercase tracking-wider">{item.category}</span>
               </div>
             </motion.div>
           ))}

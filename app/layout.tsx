@@ -31,11 +31,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className="font-sans min-h-screen bg-[#090a0f] text-slate-100 antialiased">
+    <html lang="en" className="scroll-smooth">
+      <body className="font-sans min-h-screen bg-white text-black antialiased">
         <ScrollProgress />
         <MouseSpotlight />
-        {children}
+        <div className="mx-auto bg-white min-h-screen">
+          {children}
+        </div>
       </body>
     </html>
   );

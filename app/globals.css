@@ -5,19 +5,19 @@
 :root {
   --font-inter: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   --font-outfit: "Outfit", "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-  --bg-primary: #090a0f;
-  --bg-secondary: #0f111a;
-  --bg-card: rgba(18, 21, 32, 0.7);
-  --bg-card-hover: rgba(28, 32, 48, 0.85);
-  --border-subtle: rgba(255, 255, 255, 0.08);
-  --border-highlight: rgba(255, 255, 255, 0.2);
-  --text-primary: #f8fafc;
-  --text-secondary: #94a3b8;
-  --text-muted: #64748b;
-  --accent-blue: #3b82f6;
-  --accent-purple: #8b5cf6;
-  --accent-emerald: #10b981;
-  --accent-amber: #f59e0b;
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-card: rgba(0, 0, 0, 0.9);
+  --bg-card-hover: rgba(0, 0, 0, 1);
+  --border-subtle: rgba(0, 0, 0, 0.08);
+  --border-highlight: rgba(0, 0, 0, 0.2);
+  --text-primary: #000000;
+  --text-secondary: #495057;
+  --text-muted: #6c757d;
+  --accent-blue: #000000;
+  --accent-purple: #333333;
+  --accent-emerald: #666666;
+  --accent-amber: #999999;
 }
 
 * {
@@ -28,7 +28,7 @@
 
 html {
   scroll-behavior: smooth;
-  color-scheme: dark;
+  color-scheme: light;
 }
 
 body {
@@ -37,9 +37,9 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
   overflow-x: hidden;
   background-image: 
-    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(120, 119, 198, 0.15), transparent),
-    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(59, 130, 246, 0.08), transparent),
-    radial-gradient(ellipse 50% 30% at 20% 80%, rgba(16, 185, 129, 0.06), transparent);
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(0, 0, 0, 0.03), transparent),
+    radial-gradient(ellipse 60% 40% at 80% 60%, rgba(0, 0, 0, 0.02), transparent),
+    radial-gradient(ellipse 50% 30% at 20% 80%, rgba(0, 0, 0, 0.01), transparent);
   background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -52,63 +52,65 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #090a0f;
+  background: #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1e293b;
+  background: #ced4da;
   border-radius: 9999px;
-  border: 2px solid #090a0f;
+  border: 2px solid #f8f9fa;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #334155;
+  background: #adb5bd;
 }
 
 /* Subtle Grid Background */
 .bg-grid-pattern {
   background-size: 40px 40px;
   background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(to right, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.05) 1px, transparent 1px);
 }
 
 .bg-dot-pattern {
   background-size: 24px 24px;
-  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
 }
 
-/* Glassmorphism Card System */
+/* Glassmorphism Card System (Dark Theme for Cards) */
 .glass-card {
-  background: rgba(15, 17, 26, 0.7);
+  background: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  color: white;
 }
 
 .glass-card:hover {
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
-  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 16px 40px -8px rgba(0, 0, 0, 0.2);
 }
 
 .glass-card-interactive {
-  background: rgba(18, 21, 33, 0.65);
+  background: rgba(10, 10, 10, 0.95);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   transition: all 0.3s ease;
+  color: white;
 }
 
 .glass-card-interactive:hover {
-  background: rgba(25, 30, 48, 0.8);
-  border-color: rgba(255, 255, 255, 0.22);
+  background: rgba(20, 20, 20, 1);
+  border-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Gradient Text */
 .text-gradient {
-  background: linear-gradient(135deg, #ffffff 0%, #cbd5e1 50%, #94a3b8 100%);
+  background: linear-gradient(135deg, #000000 0%, #333333 50%, #666666 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -116,7 +118,7 @@ body {
 }
 
 .text-gradient-accent {
-  background: linear-gradient(135deg, #ffffff 0%, #60a5fa 50%, #a855f7 100%);
+  background: linear-gradient(135deg, #000000 0%, #444444 50%, #111111 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -124,7 +126,7 @@ body {
 }
 
 .text-gradient-emerald {
-  background: linear-gradient(135deg, #ffffff 0%, #34d399 60%, #10b981 100%);
+  background: linear-gradient(135deg, #222222 0%, #555555 60%, #000000 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -167,19 +169,19 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.875rem;
-  color: #090a0f;
-  background: #ffffff;
+  color: #ffffff;
+  background: #000000;
   border-radius: 9999px;
   transition: all 0.25s ease;
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+  box-shadow: 0 4px 14px 0 rgba(0, 0, 0, 0.39);
 }
 
 .btn-primary:hover {
-  background: #f1f5f9;
+  background: #222222;
   transform: translateY(-1px);
-  box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.23);
 }
 
 .btn-secondary {
@@ -188,19 +190,17 @@ body {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.75rem 1.5rem;
-  font-weight: 500;
+  font-weight: 600;
   font-size: 0.875rem;
-  color: #f8fafc;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #000000;
+  background: transparent;
+  border: 1px solid #000000;
   border-radius: 9999px;
-  backdrop-filter: blur(8px);
   transition: all 0.25s ease;
 }
 
 .btn-secondary:hover {
-  background: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.3);
+  background: rgba(0, 0, 0, 0.05);
   transform: translateY(-1px);
 }
 

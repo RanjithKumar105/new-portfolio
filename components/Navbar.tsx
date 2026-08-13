@@ -47,10 +47,10 @@ export default function Navbar() {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 rounded-b-3xl mx-auto max-w-7xl ${
         scrolled
-          ? "py-3 bg-slate-950/80 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
-          : "py-5 bg-transparent"
+          ? "py-3 bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/10"
+          : "py-5 bg-black"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex items-center justify-between">
@@ -59,16 +59,16 @@ export default function Navbar() {
           href="#"
           className="group flex items-center gap-2.5 text-white font-semibold text-lg tracking-tight focus:outline-none"
         >
-          <div className="w-9 h-9 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-purple-500 flex items-center justify-center text-white font-bold text-base shadow-md shadow-indigo-500/20 group-hover:scale-105 transition-transform duration-200">
+          <div className="w-9 h-9 rounded-xl bg-white flex items-center justify-center text-black font-bold text-base shadow-sm group-hover:scale-105 transition-transform duration-200">
             RK
           </div>
-          <span className="hidden sm:inline font-bold bg-gradient-to-r from-white via-slate-200 to-slate-400 bg-clip-text text-transparent">
+          <span className="hidden sm:inline font-bold text-white tracking-wide">
             {portfolioData.personal.name}
           </span>
         </a>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-1 px-4 py-1.5 rounded-full bg-white/[0.04] border border-white/[0.08] backdrop-blur-md">
+        <nav className="hidden lg:flex items-center gap-1 px-4 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-md">
           {navLinks.map((link) => {
             const isActive = activeSection === link.href.substring(1);
             return (
@@ -77,18 +77,11 @@ export default function Navbar() {
                 href={link.href}
                 className={`relative px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                   isActive
-                    ? "text-white"
-                    : "text-slate-400 hover:text-slate-200 hover:bg-white/[0.04]"
+                    ? "text-black bg-white"
+                    : "text-gray-400 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {link.name}
-                {isActive && (
-                  <motion.div
-                    layoutId="activeNavIndicator"
-                    className="absolute inset-0 bg-white/10 border border-white/15 rounded-full -z-10 shadow-sm"
-                    transition={{ type: "spring", stiffness: 350, damping: 30 }}
-                  />
-                )}
               </a>
             );
           })}
@@ -100,14 +93,14 @@ export default function Navbar() {
             href={portfolioData.personal.resumeUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-slate-300 bg-white/5 hover:bg-white/10 border border-white/10 hover:border-white/20 rounded-full transition-all duration-200"
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-gray-300 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full transition-all duration-200"
           >
-            <FileText className="w-3.5 h-3.5 text-emerald-400" />
+            <FileText className="w-3.5 h-3.5 text-white" />
             Resume
           </a>
           <a
             href="#contact"
-            className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium text-slate-950 bg-white hover:bg-slate-100 rounded-full transition-all duration-200 shadow-sm shadow-white/20 hover:shadow-white/40 hover:scale-[1.02]"
+            className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium text-black bg-white hover:bg-gray-200 rounded-full transition-all duration-200 shadow-sm shadow-white/10 hover:scale-[1.02]"
           >
             Get in Touch
           </a>
@@ -131,7 +124,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden bg-slate-950/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden"
+            className="lg:hidden bg-black/95 backdrop-blur-2xl border-b border-white/10 overflow-hidden rounded-b-3xl"
           >
             <div className="px-6 py-6 space-y-3">
               {navLinks.map((link) => (
@@ -139,7 +132,7 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setMobileMenuOpen(false)}
-                  className="block px-3 py-2 text-sm font-medium text-slate-300 hover:text-white hover:bg-white/5 rounded-lg transition-colors"
+                  className="block px-3 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors"
                 >
                   {link.name}
                 </a>
@@ -149,15 +142,15 @@ export default function Navbar() {
                   href={portfolioData.personal.resumeUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-slate-200 bg-white/5 border border-white/10 rounded-full"
+                  className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20"
                 >
-                  <FileText className="w-4 h-4 text-emerald-400" />
+                  <FileText className="w-4 h-4 text-white" />
                   View Resume
                 </a>
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center justify-center py-2.5 text-xs font-medium text-slate-950 bg-white rounded-full font-semibold"
+                  className="flex items-center justify-center py-2.5 text-xs font-medium text-black bg-white rounded-full font-bold hover:bg-gray-200"
                 >
                   Contact Me
                 </a>
