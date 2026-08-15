@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, FileText } from "lucide-react";
 import { portfolioData } from "@/data/portfolio";
+import { ResumeViewer } from "./ResumeViewer";
 
 const navLinks = [
   { name: "About", href: "#about" },
@@ -19,6 +20,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
+  const [isResumeOpen, setIsResumeOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -89,15 +91,13 @@ export default function Navbar() {
 
         {/* Action Buttons */}
         <div className="hidden sm:flex items-center gap-3">
-          <a
-            href={portfolioData.personal.resumeUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-gray-300 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full transition-all duration-200"
+          <button
+            onClick={() => setIsResumeOpen(true)}
+            className="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-medium text-gray-300 bg-white/10 hover:bg-white/20 border border-white/20 hover:border-white/40 rounded-full transition-all duration-200 focus:outline-none"
           >
             <FileText className="w-3.5 h-3.5 text-white" />
             Resume
-          </a>
+          </button>
           <a
             href="#contact"
             className="inline-flex items-center gap-1.5 px-4 py-1.5 text-xs font-medium text-black bg-white hover:bg-gray-200 rounded-full transition-all duration-200 shadow-sm shadow-white/10 hover:scale-[1.02]"
@@ -138,15 +138,16 @@ export default function Navbar() {
                 </a>
               ))}
               <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
-                <a
-                  href={portfolioData.personal.resumeUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20"
+                <button
+                  onClick={() => {
+                    setIsResumeOpen(true);
+                    setMobileMenuOpen(false);
+                  }}
+                  className="flex items-center justify-center gap-2 py-2.5 text-xs font-medium text-white bg-white/10 border border-white/20 rounded-full hover:bg-white/20 focus:outline-none w-full"
                 >
                   <FileText className="w-4 h-4 text-white" />
                   View Resume
-                </a>
+                </button>
                 <a
                   href="#contact"
                   onClick={() => setMobileMenuOpen(false)}
@@ -159,6 +160,13 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
+
+      {/* Resume Viewer Overlay */}
+      <ResumeViewer 
+        isOpen={isResumeOpen} 
+        onClose={() => setIsResumeOpen(false)} 
+        resumeUrl={portfolioData.personal.resumeUrl} 
+      />
     </header>
   );
 }
