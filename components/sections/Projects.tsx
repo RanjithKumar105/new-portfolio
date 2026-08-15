@@ -30,7 +30,7 @@ export default function Projects() {
   });
 
   return (
-    <section id="projects" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+    <section id="projects" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
       {/* Background Grid */}
       <div className="absolute top-1/4 left-1/3 w-[500px] h-[500px] bg-black/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -42,12 +42,12 @@ export default function Projects() {
         />
 
         {/* Category Filters */}
-        <div className="flex justify-center gap-2 mb-12">
+        <div className="flex justify-center gap-2 sm:gap-3 mb-10 sm:mb-12">
           {(["All", "AI/ML", "Full Stack"] as const).map((category) => (
             <button
               key={category}
               onClick={() => setFilter(category)}
-              className={`px-4 py-1.5 text-xs font-bold rounded-full transition-all duration-200 uppercase tracking-wider ${
+              className={`px-4 sm:px-5 py-2 sm:py-2.5 text-xs font-bold rounded-full transition-all duration-200 uppercase tracking-wider min-h-[40px] ${
                 filter === category
                   ? "bg-black text-white shadow-md shadow-black/10"
                   : "bg-black/5 text-gray-500 hover:text-black hover:bg-black/10 border border-black/10"
@@ -59,7 +59,7 @@ export default function Projects() {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
           {filteredProjects.map((project, idx) => (
             <motion.div
               key={project.id}
@@ -68,14 +68,16 @@ export default function Projects() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
               whileHover={{ y: -4 }}
-              className="group relative rounded-3xl p-7 sm:p-8 bg-black border-2 border-transparent hover:border-gray-500 transition-all duration-300 shadow-xl flex flex-col justify-between overflow-hidden"
+              className="group relative rounded-2xl sm:rounded-3xl p-5 sm:p-7 md:p-8 bg-black border-2 border-transparent hover:border-gray-500 transition-all duration-300 shadow-xl hover:shadow-2xl flex flex-col justify-between overflow-hidden"
             >
               {/* Subtle Card Glow Effect */}
               <div className="absolute top-0 right-0 w-36 h-36 bg-white/5 rounded-full blur-2xl group-hover:bg-white/10 transition-all pointer-events-none" />
+              {/* Top gradient accent stripe */}
+              <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-transparent via-white/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
               <div>
                 {/* Header with Badges & Action Links */}
-                <div className="flex items-center justify-between gap-4 mb-5">
+                <div className="flex items-center justify-between gap-3 sm:gap-4 mb-4 sm:mb-5">
                   <div className="flex items-center gap-2">
                     <span className="w-8 h-8 rounded-xl bg-white/5 border border-white/10 flex items-center justify-center text-slate-300 group-hover:text-white transition-colors">
                       <FolderGit2 className="w-4 h-4" />
@@ -118,18 +120,18 @@ export default function Projects() {
                 </div>
 
                 {/* Project Title */}
-                <h3 className="text-xl sm:text-2xl font-black text-white group-hover:text-gray-300 transition-colors tracking-tight uppercase">
+                <h3 className="text-lg sm:text-xl md:text-2xl font-black text-white group-hover:text-gray-300 transition-colors tracking-tight uppercase leading-tight">
                   {project.title}
                 </h3>
 
                 {/* Project Description */}
-                <p className="mt-3 text-gray-400 text-sm leading-relaxed font-medium">
+                <p className="mt-2.5 sm:mt-3 text-gray-400 text-xs sm:text-sm leading-relaxed font-medium">
                   {project.description}
                 </p>
               </div>
 
               {/* Technology Badges */}
-              <div className="mt-6 pt-5 border-t border-white/10 flex flex-wrap gap-2">
+              <div className="mt-5 sm:mt-6 pt-4 sm:pt-5 border-t border-white/10 flex flex-wrap gap-1.5 sm:gap-2">
                 {project.tags.map((tag) => (
                   <span
                     key={tag}

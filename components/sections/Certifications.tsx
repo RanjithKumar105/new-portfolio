@@ -23,7 +23,7 @@ export default function Certifications() {
   };
 
   return (
-    <section id="certifications" className="py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
+    <section id="certifications" className="py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 relative">
       {/* Background Subtle Gradient */}
       <div className="absolute bottom-1/4 right-0 w-96 h-96 bg-black/5 rounded-full blur-3xl pointer-events-none -z-10" />
 
@@ -34,7 +34,7 @@ export default function Certifications() {
           subtitle="Accredited certifications in Cloud Computing, AI Foundations, Machine Learning, and Web Technologies."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
           {portfolioData.certifications.map((cert, idx) => (
             <motion.div
               key={cert.id}
@@ -43,11 +43,11 @@ export default function Certifications() {
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.4 }}
               whileHover={{ y: -4 }}
-              className="p-6 rounded-3xl bg-white border border-black/10 hover:border-black/30 shadow-sm hover:shadow-md transition-all group flex flex-col justify-between"
+              className="p-4 sm:p-6 rounded-2xl sm:rounded-3xl bg-white border border-black/10 hover:border-black/25 shadow-sm hover:shadow-md transition-all duration-200 group flex flex-col justify-between"
             >
               <div>
                 <div className="flex items-center justify-between gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-2xl bg-black/5 border border-black/10 flex items-center justify-center group-hover:scale-105 transition-transform">
+                  <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-xl sm:rounded-2xl bg-black/5 border border-black/10 flex items-center justify-center group-hover:scale-110 transition-transform duration-200">
                     {getIcon(cert.icon)}
                   </div>
                   <span className="text-xs font-bold px-2.5 py-0.5 rounded-full bg-black/5 text-gray-600 border border-black/5">
@@ -55,7 +55,7 @@ export default function Certifications() {
                   </span>
                 </div>
 
-                <h3 className="text-base sm:text-lg font-black text-black group-hover:text-gray-600 transition-colors tracking-tight uppercase">
+                <h3 className="text-sm sm:text-base md:text-lg font-black text-black group-hover:text-gray-600 transition-colors tracking-tight uppercase leading-tight">
                   {cert.name}
                 </h3>
 
@@ -66,7 +66,7 @@ export default function Certifications() {
               </div>
 
               {cert.url && (
-                <div className="mt-6 pt-4 border-t border-black/10 flex items-center justify-between">
+                <div className="mt-4 sm:mt-6 pt-3 sm:pt-4 border-t border-black/10 flex items-center justify-between gap-2">
                   <a
                     href={cert.url}
                     target="_blank"

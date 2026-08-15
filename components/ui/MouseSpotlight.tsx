@@ -39,7 +39,7 @@ export function MouseSpotlight() {
           left: `${position.x}px`,
           transform: "translate(-50%, -50%)",
           background:
-            "radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, rgba(59, 130, 246, 0.03) 40%, transparent 70%)",
+            "radial-gradient(circle, rgba(0, 0, 0, 0.06) 0%, rgba(0, 0, 0, 0.02) 40%, transparent 70%)",
         }}
       />
     </div>

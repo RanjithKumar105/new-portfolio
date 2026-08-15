@@ -263,7 +263,7 @@ function TerminalWindow({
       {/* Body */}
       <div
         ref={bodyRef}
-        className="p-5 sm:p-6 space-y-0.5 overflow-y-auto"
+        className="p-4 sm:p-5 md:p-6 space-y-0.5 overflow-y-auto"
         style={{ maxHeight: 340, scrollBehavior: "smooth" }}
       >
         {visibleLines.map((idx) => (
@@ -402,7 +402,7 @@ function TerminalTrigger({ onClick }: { onClick: () => void }) {
   const [showTooltip, setShowTooltip] = useState(false);
 
   return (
-    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-40 flex flex-col items-center gap-2">
+    <div className="fixed left-4 top-1/2 -translate-y-1/2 z-40 hidden md:flex flex-col items-center gap-2">
       {/* Tooltip */}
       <AnimatePresence>
         {showTooltip && (
@@ -496,7 +496,7 @@ function SkillCard({
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
       whileHover={{ y: -8, scale: 1.02 }}
-      className="relative rounded-2xl overflow-hidden cursor-default select-none bg-white"
+      className="relative rounded-2xl overflow-hidden cursor-default select-none bg-white max-w-full"
       style={{
         border: `2px solid ${isHovered ? category.color + "55" : "rgba(0,0,0,0.1)"}`,
         boxShadow: isHovered
@@ -537,14 +537,14 @@ function SkillCard({
         transition={{ duration: 0.35 }}
       />
 
-      <div className="relative z-10 p-5">
+      <div className="relative z-10 p-4 sm:p-5">
         {/* Card header */}
         <div className="flex items-start justify-between mb-4">
           <div className="flex items-center gap-3">
             <motion.div
               animate={{ rotate: isHovered ? 8 : 0, scale: isHovered ? 1.05 : 1 }}
               transition={{ type: "spring", stiffness: 320, damping: 18 }}
-              className="w-11 h-11 rounded-xl flex items-center justify-center text-sm font-mono font-bold flex-shrink-0"
+              className="w-10 h-10 sm:w-11 sm:h-11 rounded-xl flex items-center justify-center text-xs sm:text-sm font-mono font-bold flex-shrink-0"
               style={{
                 background: `linear-gradient(135deg, ${category.color}22, ${category.color}08)`,
                 border: `1px solid ${category.color}45`,
@@ -873,7 +873,7 @@ export default function AIConsoleSkills() {
     <section
       id="skills"
       ref={sectionRef}
-      className="relative min-h-screen py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
+      className="relative min-h-screen py-16 sm:py-20 md:py-28 px-4 sm:px-6 lg:px-8 overflow-hidden"
     >
       <ConsoleBackground />
 
@@ -900,7 +900,7 @@ export default function AIConsoleSkills() {
               AI Developer Console · v2.0
             </span>
           </motion.div>
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-black text-black tracking-tight mb-3 uppercase">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-black tracking-tighter mb-3 uppercase">
             Skills &amp; Technology Stack
           </h2>
           <p className="text-gray-600 font-medium text-sm sm:text-base max-w-lg mx-auto leading-relaxed">
@@ -922,7 +922,7 @@ export default function AIConsoleSkills() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -24 }}
               transition={{ type: "spring", stiffness: 280, damping: 26 }}
-              className="max-w-2xl mx-auto mb-10"
+              className="max-w-full sm:max-w-2xl mx-auto mb-10"
             >
               <TerminalWindow
                 title="portfolio — system boot"
@@ -941,7 +941,7 @@ export default function AIConsoleSkills() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.9, y: -24 }}
               transition={{ type: "spring", stiffness: 280, damping: 26 }}
-              className="max-w-2xl mx-auto mb-10"
+              className="max-w-full sm:max-w-2xl mx-auto mb-10"
             >
               <TerminalWindow
                 title="portfolio — ai profile scan"
@@ -995,7 +995,7 @@ export default function AIConsoleSkills() {
               </motion.div>
 
               {/* Skills Grid */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
                 {SKILL_CATEGORIES.map((cat, i) => (
                   <SkillCard key={cat.id} category={cat} cardIndex={i} />
                 ))}
@@ -1006,7 +1006,7 @@ export default function AIConsoleSkills() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 1.0, duration: 0.55 }}
-                className="mt-10 flex flex-wrap items-center justify-center gap-3"
+                className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center gap-2 sm:gap-3 max-w-full"
               >
                 {[
                   { label: "Languages", count: "6", color: "#000000" },

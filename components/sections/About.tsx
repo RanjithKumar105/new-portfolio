@@ -23,7 +23,7 @@ export default function About() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Left Column: Two Staggered Glassmorphic Photos with 3D Tilt Hover */}
           <div className="lg:col-span-5 relative">
-            <div className="relative w-full max-w-md mx-auto aspect-[4/5] sm:aspect-square flex items-center justify-center">
+            <div className="relative w-full max-w-sm sm:max-w-md mx-auto aspect-[4/5] sm:aspect-square flex items-center justify-center">
               {/* Photo 1: Background Staggered Top-Left Card */}
               <motion.div
                 initial={{ opacity: 0, x: -30, rotate: -4 }}
@@ -31,7 +31,7 @@ export default function About() {
                 viewport={{ once: true }}
                 whileHover={{ rotate: 0, scale: 1.03, zIndex: 20 }}
                 transition={{ duration: 0.4 }}
-                className="absolute top-0 left-0 w-[68%] aspect-[4/5] rounded-3xl p-2 bg-white border border-black/10 shadow-2xl backdrop-blur-xl group overflow-hidden"
+                className="absolute top-0 left-0 w-[65%] sm:w-[68%] aspect-[4/5] rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 bg-white border border-black/10 shadow-2xl backdrop-blur-xl group overflow-hidden"
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <ImageWithFallback
@@ -39,6 +39,7 @@ export default function About() {
                     alt="Ranjith Kumar in Lab"
                     fallbackText="RK Photo 1"
                     fill
+                    sizes="(max-width: 640px) 65vw, (max-width: 1024px) 300px, 300px"
                     className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -57,7 +58,7 @@ export default function About() {
                 viewport={{ once: true }}
                 whileHover={{ rotate: 0, scale: 1.03, zIndex: 20 }}
                 transition={{ duration: 0.4, delay: 0.15 }}
-                className="absolute bottom-0 right-0 w-[68%] aspect-[4/5] rounded-3xl p-2 bg-white border border-black/10 shadow-2xl backdrop-blur-xl group overflow-hidden z-10"
+                className="absolute bottom-0 right-0 w-[65%] sm:w-[68%] aspect-[4/5] rounded-2xl sm:rounded-3xl p-1.5 sm:p-2 bg-white border border-black/10 shadow-2xl backdrop-blur-xl group overflow-hidden z-10"
               >
                 <div className="relative w-full h-full rounded-2xl overflow-hidden">
                   <ImageWithFallback
@@ -65,6 +66,7 @@ export default function About() {
                     alt="Ranjith Kumar"
                     fallbackText="Ranjith Kumar"
                     fill
+                    sizes="(max-width: 640px) 65vw, (max-width: 1024px) 300px, 300px"
                     className="object-cover group-hover:scale-105 transition-transform duration-500 grayscale group-hover:grayscale-0"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
@@ -82,7 +84,7 @@ export default function About() {
           </div>
 
           {/* Right Column: Bio Narrative & Stats Grid */}
-          <div className="lg:col-span-7 space-y-8 text-left">
+          <div className="lg:col-span-7 space-y-6 sm:space-y-8 text-left">
             <div className="space-y-4">
               <h3 className="text-2xl sm:text-3xl font-black text-black tracking-tight uppercase">
                 Engineering at the Intersection of{" "}
@@ -92,14 +94,14 @@ export default function About() {
               </h3>
 
               {portfolioData.personal.detailedBio.map((paragraph, idx) => (
-                <p key={idx} className="text-gray-600 font-medium text-base leading-relaxed">
+                <p key={idx} className="text-gray-600 font-medium text-sm sm:text-base leading-relaxed">
                   {paragraph}
                 </p>
               ))}
             </div>
 
             {/* Stats Cards Grid */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 pt-2">
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-2.5 sm:gap-3 pt-2">
               {portfolioData.stats.map((stat, idx) => (
                 <motion.div
                   key={stat.label}
@@ -107,9 +109,9 @@ export default function About() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.4 }}
-                  className="p-4 rounded-2xl bg-black/5 border border-black/10 hover:border-black/30 transition-all group"
+                  className="p-3 sm:p-4 rounded-2xl bg-black/5 border border-black/10 hover:border-black/30 transition-all duration-200 group hover:shadow-sm"
                 >
-                  <div className="text-2xl sm:text-3xl font-black text-black group-hover:text-gray-600 transition-colors">
+                  <div className="text-xl sm:text-2xl md:text-3xl font-black text-black group-hover:text-gray-600 transition-colors">
                     {stat.value}
                     <span className="text-xs font-bold text-gray-500 ml-0.5">
                       {stat.suffix}
